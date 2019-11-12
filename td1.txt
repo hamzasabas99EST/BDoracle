@@ -1,0 +1,25 @@
+Exercice 1
+
+Q1)  Donnez la liste des avions dont la capacité est supérieure à 350 passagers.
+R1) SELECT * 
+    FROM AIRPLANE
+    WHERE capacity>350;
+
+Q2)  Quels sont les numéros et noms des avions localisés à Nice ? 
+R2)   SELECT NumAP,NameAP	
+    FROM AIRPLANE
+    WHERE Localisation='Nice';
+
+Q3 ) Quels sont les numéros des pilotes en service et les villes de départ de leurs vols ?
+R3) SELECT NumP,Dep_T FROM FLIGHT;
+Q4:)Donnez toutes les informations sur les pilotes de la compagnie. 
+R4:) SELECT * FROM PILOT;
+Q5) Quel est le nom des pilotes domiciliés à Paris dont le salaire est supérieur à 15000 ? 
+R5:) SELECT NameP FROM PILOT WHERE Salary>15000;
+Q6 ) Quels sont les avions (numéro et nom) localisés à Nice ou dont la capacité est inférieure à 350 passagers ? 
+R6) SELECT * 
+    FROM AIRPLANE
+    WHERE Localisation='Nice' AND capacity>350;
+
+
+       
