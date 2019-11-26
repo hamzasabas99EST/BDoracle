@@ -1,4 +1,4 @@
-A) Création des tables
+A) CrÃ©ation des tables
 ----------------------
 
 CREATE TABLE PIECE(
@@ -48,8 +48,7 @@ CREATE TABLE NOMENCLATURE (
 
 );
 
-Les Contraintes
----------------
+
 1) INSERT INTO PIECE VALUES (14,'P1','bleu','10kg');
    
 INSERT INTO PIECE VALUES (14,'P2','jaune','15kg');
@@ -68,6 +67,9 @@ INSERT INTO PIECE VALUES (14,'P2','jaune','15kg');
 INSERT INTO NOMENCLATURE VALUES (36,15,46);
   
 INSERT INTO NOMENCLATURE VALUES (30,6,40);
+
+Les Contraintes
+---------------
 
 5)
 #Table piece
@@ -108,6 +110,7 @@ ALTER TABLE NOMENCLATURE
 ADD CONSTRAINT nom_nos_fk FOREIGN KEY (NOPC) REFERENCES PIECE (NOP) ;
 
 
-B) Contraintes d’intégrité
+B) Contraintes dâ€™intÃ©gritÃ©
+
 ---------------------------
 
