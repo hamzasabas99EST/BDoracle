@@ -97,6 +97,56 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Nombre de personnes travaillant dans le service numéro 30 est : '|| v_nombre);
 END;
     
+--Ex10
+    DECLARE
+        v_name employee.last_name%TYPE;
+        v_salary  employee.salary%TYPE;
+    BEGIN
+      SELECT last_name,salary
+      INTO v_name,v_salary
+      FROM employees;
 
+      IF v_salary<3000 THEN 
+        v_salary+=500;
+        DBMS_OUTPUT.PUT_LINE(v_name||' salary is updated ');
+
+      ELSE 
+        DBMS_OUTPUT.PUT_LINE(v_name||' earn '||v_salary);
+      END IF;
+    END;
+
+--Ex11
+    --1) a)
+    SELECT horaire 
+    FROM salle
+    WHERE titre='Les misérables';
+    --b)
+    SELECT acteur
+    FROM FILM
+    GROUP BY acteur
+    HAVING COUNT(Titre)=(SELECT COUNT(*) FROM Film);
+    --c)
+    SELECT spectateur FROM Vu
+    GROUP BY spectateur
+    HAVING COUNT(Titre)=(SELECT COUNT(Titre) FROM Aime GROUP BY Amateur);
+    --2)
+     DECLARE
+        CURSOR film_cursor IS
+        SELECT count(*) as 'nombrefilm',p.prodecteur
+        FROM FILM f JOIN PRODUCTEUR p
+        ON(f.titre=p.titre)
+        GROUP BY p.prodecteur;
+
+     BEGIN 
+        OPEN film_cursor;
+            FOR film_record IN film_cursor LOOP
+                IF film_record%NOTFOUND THEN
+                DBMS_OUTPUT.PUT_LINE('Pas de film disponibles !!');
+                ELSE
+                DBMS_OUTPUT.PUT_LINE('Le réalisateur : '||film_record.nombrefilm || 'à realisé '||film_record.p.prodecteur);
+
+            END LOOP;
+        CLOSE film_cursor; 
+        END;
 
 
