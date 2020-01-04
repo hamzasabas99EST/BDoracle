@@ -23,7 +23,7 @@ BEGIN
     fact:=fact*i;
     END LOOP;
     
-    DMBS_OUTPUT.PUT_LINE('Factoriel de '|| a ||' '|| fact);
+    DBMS_OUTPUT.PUT_LINE('Factoriel de '|| a ||' '|| fact);
     
 END;
 
@@ -47,7 +47,7 @@ BEGIN
     INTO v_id
     FROM departments;
     
-    DMBS_OUTPUT.PUT_LINE( 'Valeur max' ||v_id);
+    DBMS_OUTPUT.PUT_LINE( 'Valeur max' ||v_id);
 END;
 
 --Ex6
